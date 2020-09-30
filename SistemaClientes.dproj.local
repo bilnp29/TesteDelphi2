@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/01/07 15:44:44.000.262,=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/01/07 15:52:46.000.246,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\codigos\unt_principal.dfm=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/01/07 15:52:46.000.246,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\codigos\unt_principal.pas=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/01/07 15:53:04.000.528,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\SistemaClientes.dproj=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/01/07 16:36:41.000.308,=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\Unit1.pas</Transaction>
+    <Transaction>2020/01/07 16:37:34.000.503,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\codigos\unt_dm.pas=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\Unit1.pas</Transaction>
+    <Transaction>2020/01/07 16:37:34.000.503,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\codigos\unt_dm.dfm=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\Unit1.dfm</Transaction>
+    <Transaction>2020/01/13 19:11:25.000.890,=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\Unit1.pas</Transaction>
+    <Transaction>2020/01/13 19:12:37.000.401,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\Unit1.dfm=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\codigos\unt_clientes.dfm</Transaction>
+    <Transaction>2020/01/13 19:12:37.000.401,C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\Unit1.pas=C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Clientes\codigos\unt_clientes.pas</Transaction>
+  </Transactions>
+</BorlandProject>

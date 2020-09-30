@@ -1,0 +1,64 @@
+unit unt_dm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQLDef,
+  FireDAC.VCLUI.Wait, FireDAC.Comp.UI, FireDAC.Phys.MySQL, Data.DB,
+  FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.DApt, FireDAC.Comp.DataSet;
+
+type
+  Tdm = class(TDataModule)
+    FDConnection1: TFDConnection;
+    driver: TFDPhysMySQLDriverLink;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    tb_clientes: TFDTable;
+    DataSource1: TDataSource;
+    tb_clientescli_id: TFDAutoIncField;
+    tb_clientescli_nome: TStringField;
+    tb_clientescli_endereco: TStringField;
+    tb_clientescli_cidade: TStringField;
+    tb_clientescli_bairro: TStringField;
+    tb_clientescli_numero: TIntegerField;
+    tb_clientescli_cpf: TStringField;
+    tb_clientescli_rg: TStringField;
+    tb_clientescli_tel: TStringField;
+    tb_clientescli_cel: TStringField;
+    tb_clientescli_data_nascimento: TDateField;
+    tb_clientescli_data_cadastro: TDateField;
+    tb_clientescli_situacao: TStringField;
+    tb_clientescli_estado: TStringField;
+    tb_clientescli_email: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm: Tdm;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure Tdm.DataModuleCreate(Sender: TObject);
+begin
+  FDConnection1.Params.Database := 'sistema';
+  FDConnection1.Params.UserName := 'root';
+  FDConnection1.Params.Password := '';
+
+  FDConnection1.Connected       := True;
+  driver.VendorLib              := GetCurrentDir + '\lib\libmysql.dll';
+
+  tb_clientes.TableName         := 'clientes';
+  tb_clientes.Active            := True;
+end;
+
+end.

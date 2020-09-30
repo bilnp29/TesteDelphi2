@@ -1,0 +1,97 @@
+unit unt_dm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQLDef,
+  FireDAC.VCLUI.Wait, FireDAC.Comp.UI, FireDAC.Phys.MySQL, Data.DB,
+  FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.DApt, FireDAC.Comp.DataSet;
+
+type
+  Tdm = class(TDataModule)
+    FDConnection1: TFDConnection;
+    driver: TFDPhysMySQLDriverLink;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    tb_clientes: TFDTable;
+    DataSource1: TDataSource;
+    tb_clientescli_id: TFDAutoIncField;
+    tb_clientescli_nome: TStringField;
+    tb_clientescli_endereco: TStringField;
+    tb_clientescli_cidade: TStringField;
+    tb_clientescli_bairro: TStringField;
+    tb_clientescli_numero: TIntegerField;
+    tb_clientescli_cpf: TStringField;
+    tb_clientescli_rg: TStringField;
+    tb_clientescli_tel: TStringField;
+    tb_clientescli_cel: TStringField;
+    tb_clientescli_data_nascimento: TDateField;
+    tb_clientescli_data_cadastro: TDateField;
+    tb_clientescli_situacao: TStringField;
+    tb_clientescli_estado: TStringField;
+    tb_clientescli_email: TStringField;
+    FDQuery_consulta_cliente: TFDQuery;
+    FDQuery_imprimir: TFDQuery;
+    DS_consultar_clientes: TDataSource;
+    FDQuery_consulta_clientecli_id: TFDAutoIncField;
+    FDQuery_consulta_clientecli_nome: TStringField;
+    FDQuery_consulta_clientecli_endereco: TStringField;
+    FDQuery_consulta_clientecli_cidade: TStringField;
+    FDQuery_consulta_clientecli_bairro: TStringField;
+    FDQuery_consulta_clientecli_estado: TStringField;
+    FDQuery_consulta_clientecli_email: TStringField;
+    FDQuery_consulta_clientecli_numero: TIntegerField;
+    FDQuery_consulta_clientecli_cpf: TStringField;
+    FDQuery_consulta_clientecli_rg: TStringField;
+    FDQuery_consulta_clientecli_tel: TStringField;
+    FDQuery_consulta_clientecli_cel: TStringField;
+    FDQuery_consulta_clientecli_data_nascimento: TDateField;
+    FDQuery_consulta_clientecli_data_cadastro: TDateField;
+    FDQuery_consulta_clientecli_situacao: TStringField;
+    FDQuery_imprimircli_id: TFDAutoIncField;
+    FDQuery_imprimircli_nome: TStringField;
+    FDQuery_imprimircli_endereco: TStringField;
+    FDQuery_imprimircli_cidade: TStringField;
+    FDQuery_imprimircli_bairro: TStringField;
+    FDQuery_imprimircli_estado: TStringField;
+    FDQuery_imprimircli_email: TStringField;
+    FDQuery_imprimircli_numero: TIntegerField;
+    FDQuery_imprimircli_cpf: TStringField;
+    FDQuery_imprimircli_rg: TStringField;
+    FDQuery_imprimircli_tel: TStringField;
+    FDQuery_imprimircli_cel: TStringField;
+    FDQuery_imprimircli_data_nascimento: TDateField;
+    FDQuery_imprimircli_data_cadastro: TDateField;
+    FDQuery_imprimircli_situacao: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm: Tdm;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure Tdm.DataModuleCreate(Sender: TObject);
+begin
+  FDConnection1.Params.Database := 'sistema';
+  FDConnection1.Params.UserName := 'root';
+  FDConnection1.Params.Password := '';
+
+  FDConnection1.Connected       := True;
+  driver.VendorLib              := GetCurrentDir + '\lib\libmysql.dll';
+
+  tb_clientes.TableName         := 'clientes';
+  tb_clientes.Active            := True;
+end;
+
+end.

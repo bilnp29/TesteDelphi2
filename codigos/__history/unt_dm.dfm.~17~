@@ -1,0 +1,315 @@
+object dm: Tdm
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 252
+  Width = 430
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=sistema'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 32
+    Top = 72
+  end
+  object driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Cli' +
+      'entes\lib\libmysql.dll'
+    Left = 104
+    Top = 72
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 64
+    Top = 8
+  end
+  object tb_clientes: TFDTable
+    IndexFieldNames = 'cli_id'
+    Connection = FDConnection1
+    UpdateOptions.UpdateTableName = 'sistema.clientes'
+    TableName = 'sistema.clientes'
+    Left = 32
+    Top = 152
+    object tb_clientescli_id: TFDAutoIncField
+      FieldName = 'cli_id'
+      Origin = 'cli_id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object tb_clientescli_nome: TStringField
+      FieldName = 'cli_nome'
+      Origin = 'cli_nome'
+      Required = True
+      Size = 70
+    end
+    object tb_clientescli_endereco: TStringField
+      FieldName = 'cli_endereco'
+      Origin = 'cli_endereco'
+      Required = True
+      Size = 100
+    end
+    object tb_clientescli_cidade: TStringField
+      FieldName = 'cli_cidade'
+      Origin = 'cli_cidade'
+      Required = True
+      Size = 60
+    end
+    object tb_clientescli_bairro: TStringField
+      FieldName = 'cli_bairro'
+      Origin = 'cli_bairro'
+      Required = True
+      Size = 60
+    end
+    object tb_clientescli_numero: TIntegerField
+      FieldName = 'cli_numero'
+      Origin = 'cli_numero'
+      Required = True
+    end
+    object tb_clientescli_cpf: TStringField
+      FieldName = 'cli_cpf'
+      Origin = 'cli_cpf'
+      Required = True
+      EditMask = '000\.000\.000\-00;0'
+      Size = 15
+    end
+    object tb_clientescli_rg: TStringField
+      FieldName = 'cli_rg'
+      Origin = 'cli_rg'
+      Required = True
+      EditMask = 'AA 00\.000\.000;0;_'
+      Size = 15
+    end
+    object tb_clientescli_tel: TStringField
+      FieldName = 'cli_tel'
+      Origin = 'cli_tel'
+      Required = True
+      EditMask = '!\(99\) 0000-0000;0;_'
+    end
+    object tb_clientescli_cel: TStringField
+      FieldName = 'cli_cel'
+      Origin = 'cli_cel'
+      Required = True
+      EditMask = '!\(99\)00000-0000;0;_'
+    end
+    object tb_clientescli_data_nascimento: TDateField
+      FieldName = 'cli_data_nascimento'
+      Origin = 'cli_data_nascimento'
+      Required = True
+      EditMask = '!99/99/0000;1;_'
+    end
+    object tb_clientescli_data_cadastro: TDateField
+      FieldName = 'cli_data_cadastro'
+      Origin = 'cli_data_cadastro'
+      Required = True
+    end
+    object tb_clientescli_situacao: TStringField
+      FieldName = 'cli_situacao'
+      Origin = 'cli_situacao'
+      Required = True
+    end
+    object tb_clientescli_estado: TStringField
+      FieldName = 'cli_estado'
+      Origin = 'cli_estado'
+      Required = True
+      Size = 60
+    end
+    object tb_clientescli_email: TStringField
+      FieldName = 'cli_email'
+      Origin = 'cli_email'
+      Required = True
+      Size = 100
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = tb_clientes
+    Left = 96
+    Top = 152
+  end
+  object FDQuery_consulta_cliente: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 232
+    Top = 80
+    object FDQuery_consulta_clientecli_id: TFDAutoIncField
+      FieldName = 'cli_id'
+      Origin = 'cli_id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQuery_consulta_clientecli_nome: TStringField
+      FieldName = 'cli_nome'
+      Origin = 'cli_nome'
+      Required = True
+      Size = 70
+    end
+    object FDQuery_consulta_clientecli_endereco: TStringField
+      FieldName = 'cli_endereco'
+      Origin = 'cli_endereco'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_consulta_clientecli_cidade: TStringField
+      FieldName = 'cli_cidade'
+      Origin = 'cli_cidade'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_consulta_clientecli_bairro: TStringField
+      FieldName = 'cli_bairro'
+      Origin = 'cli_bairro'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_consulta_clientecli_estado: TStringField
+      FieldName = 'cli_estado'
+      Origin = 'cli_estado'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_consulta_clientecli_email: TStringField
+      FieldName = 'cli_email'
+      Origin = 'cli_email'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_consulta_clientecli_numero: TIntegerField
+      FieldName = 'cli_numero'
+      Origin = 'cli_numero'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_cpf: TStringField
+      FieldName = 'cli_cpf'
+      Origin = 'cli_cpf'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_consulta_clientecli_rg: TStringField
+      FieldName = 'cli_rg'
+      Origin = 'cli_rg'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_consulta_clientecli_tel: TStringField
+      FieldName = 'cli_tel'
+      Origin = 'cli_tel'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_cel: TStringField
+      FieldName = 'cli_cel'
+      Origin = 'cli_cel'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_data_nascimento: TDateField
+      FieldName = 'cli_data_nascimento'
+      Origin = 'cli_data_nascimento'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_data_cadastro: TDateField
+      FieldName = 'cli_data_cadastro'
+      Origin = 'cli_data_cadastro'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_situacao: TStringField
+      FieldName = 'cli_situacao'
+      Origin = 'cli_situacao'
+      Required = True
+    end
+  end
+  object FDQuery_imprimir: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 232
+    Top = 160
+    object FDQuery_imprimircli_id: TFDAutoIncField
+      FieldName = 'cli_id'
+      Origin = 'cli_id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQuery_imprimircli_nome: TStringField
+      FieldName = 'cli_nome'
+      Origin = 'cli_nome'
+      Required = True
+      Size = 70
+    end
+    object FDQuery_imprimircli_endereco: TStringField
+      FieldName = 'cli_endereco'
+      Origin = 'cli_endereco'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_imprimircli_cidade: TStringField
+      FieldName = 'cli_cidade'
+      Origin = 'cli_cidade'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_imprimircli_bairro: TStringField
+      FieldName = 'cli_bairro'
+      Origin = 'cli_bairro'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_imprimircli_estado: TStringField
+      FieldName = 'cli_estado'
+      Origin = 'cli_estado'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_imprimircli_email: TStringField
+      FieldName = 'cli_email'
+      Origin = 'cli_email'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_imprimircli_numero: TIntegerField
+      FieldName = 'cli_numero'
+      Origin = 'cli_numero'
+      Required = True
+    end
+    object FDQuery_imprimircli_cpf: TStringField
+      FieldName = 'cli_cpf'
+      Origin = 'cli_cpf'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_imprimircli_rg: TStringField
+      FieldName = 'cli_rg'
+      Origin = 'cli_rg'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_imprimircli_tel: TStringField
+      FieldName = 'cli_tel'
+      Origin = 'cli_tel'
+      Required = True
+    end
+    object FDQuery_imprimircli_cel: TStringField
+      FieldName = 'cli_cel'
+      Origin = 'cli_cel'
+      Required = True
+    end
+    object FDQuery_imprimircli_data_nascimento: TDateField
+      FieldName = 'cli_data_nascimento'
+      Origin = 'cli_data_nascimento'
+      Required = True
+    end
+    object FDQuery_imprimircli_data_cadastro: TDateField
+      FieldName = 'cli_data_cadastro'
+      Origin = 'cli_data_cadastro'
+      Required = True
+    end
+    object FDQuery_imprimircli_situacao: TStringField
+      FieldName = 'cli_situacao'
+      Origin = 'cli_situacao'
+      Required = True
+    end
+  end
+  object DS_consultar_clientes: TDataSource
+    DataSet = FDQuery_consulta_cliente
+    Left = 344
+    Top = 128
+  end
+end

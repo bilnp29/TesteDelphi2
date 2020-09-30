@@ -1,0 +1,1003 @@
+object dm: Tdm
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 404
+  Width = 372
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=sistema'
+      'User_Name=root'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 160
+    Top = 8
+  end
+  object driver: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\bilnp\Documents\Embarcadero\Studio\Projects\Sistema Cli' +
+      'entes\lib\libmysql.dll'
+    Left = 240
+    Top = 8
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 64
+    Top = 8
+  end
+  object tb_clientes: TFDTable
+    IndexFieldNames = 'cli_id'
+    Connection = FDConnection1
+    UpdateOptions.UpdateTableName = 'sistema.clientes'
+    TableName = 'sistema.clientes'
+    Left = 304
+    Top = 80
+    object tb_clientescli_id: TFDAutoIncField
+      FieldName = 'cli_id'
+      Origin = 'cli_id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object tb_clientescli_nome: TStringField
+      FieldName = 'cli_nome'
+      Origin = 'cli_nome'
+      Required = True
+      Size = 70
+    end
+    object tb_clientescli_endereco: TStringField
+      FieldName = 'cli_endereco'
+      Origin = 'cli_endereco'
+      Required = True
+      Size = 100
+    end
+    object tb_clientescli_cidade: TStringField
+      FieldName = 'cli_cidade'
+      Origin = 'cli_cidade'
+      Required = True
+      Size = 60
+    end
+    object tb_clientescli_bairro: TStringField
+      FieldName = 'cli_bairro'
+      Origin = 'cli_bairro'
+      Required = True
+      Size = 60
+    end
+    object tb_clientescli_numero: TIntegerField
+      FieldName = 'cli_numero'
+      Origin = 'cli_numero'
+      Required = True
+    end
+    object tb_clientescli_cpf: TStringField
+      FieldName = 'cli_cpf'
+      Origin = 'cli_cpf'
+      Required = True
+      EditMask = '000\.000\.000\-00;0'
+      Size = 15
+    end
+    object tb_clientescli_rg: TStringField
+      FieldName = 'cli_rg'
+      Origin = 'cli_rg'
+      Required = True
+      EditMask = 'AA 00\.000\.000;0;_'
+      Size = 15
+    end
+    object tb_clientescli_tel: TStringField
+      FieldName = 'cli_tel'
+      Origin = 'cli_tel'
+      Required = True
+      EditMask = '!\(99\) 0000-0000;0;_'
+    end
+    object tb_clientescli_cel: TStringField
+      FieldName = 'cli_cel'
+      Origin = 'cli_cel'
+      Required = True
+      EditMask = '!\(99\)00000-0000;0;_'
+    end
+    object tb_clientescli_data_nascimento: TDateField
+      FieldName = 'cli_data_nascimento'
+      Origin = 'cli_data_nascimento'
+      Required = True
+      EditMask = '!99/99/0000;1;_'
+    end
+    object tb_clientescli_data_cadastro: TDateField
+      FieldName = 'cli_data_cadastro'
+      Origin = 'cli_data_cadastro'
+      Required = True
+    end
+    object tb_clientescli_situacao: TStringField
+      FieldName = 'cli_situacao'
+      Origin = 'cli_situacao'
+      Required = True
+    end
+    object tb_clientescli_estado: TStringField
+      FieldName = 'cli_estado'
+      Origin = 'cli_estado'
+      Required = True
+      Size = 60
+    end
+    object tb_clientescli_email: TStringField
+      FieldName = 'cli_email'
+      Origin = 'cli_email'
+      Required = True
+      Size = 100
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = tb_clientes
+    Left = 48
+    Top = 160
+  end
+  object FDQuery_consulta_cliente: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 72
+    Top = 80
+    object FDQuery_consulta_clientecli_id: TFDAutoIncField
+      FieldName = 'cli_id'
+      Origin = 'cli_id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQuery_consulta_clientecli_nome: TStringField
+      FieldName = 'cli_nome'
+      Origin = 'cli_nome'
+      Required = True
+      Size = 70
+    end
+    object FDQuery_consulta_clientecli_endereco: TStringField
+      FieldName = 'cli_endereco'
+      Origin = 'cli_endereco'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_consulta_clientecli_cidade: TStringField
+      FieldName = 'cli_cidade'
+      Origin = 'cli_cidade'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_consulta_clientecli_bairro: TStringField
+      FieldName = 'cli_bairro'
+      Origin = 'cli_bairro'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_consulta_clientecli_estado: TStringField
+      FieldName = 'cli_estado'
+      Origin = 'cli_estado'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_consulta_clientecli_email: TStringField
+      FieldName = 'cli_email'
+      Origin = 'cli_email'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_consulta_clientecli_numero: TIntegerField
+      FieldName = 'cli_numero'
+      Origin = 'cli_numero'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_cpf: TStringField
+      FieldName = 'cli_cpf'
+      Origin = 'cli_cpf'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_consulta_clientecli_rg: TStringField
+      FieldName = 'cli_rg'
+      Origin = 'cli_rg'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_consulta_clientecli_tel: TStringField
+      FieldName = 'cli_tel'
+      Origin = 'cli_tel'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_cel: TStringField
+      FieldName = 'cli_cel'
+      Origin = 'cli_cel'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_data_nascimento: TDateField
+      FieldName = 'cli_data_nascimento'
+      Origin = 'cli_data_nascimento'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_data_cadastro: TDateField
+      FieldName = 'cli_data_cadastro'
+      Origin = 'cli_data_cadastro'
+      Required = True
+    end
+    object FDQuery_consulta_clientecli_situacao: TStringField
+      FieldName = 'cli_situacao'
+      Origin = 'cli_situacao'
+      Required = True
+    end
+  end
+  object FDQuery_imprimir: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 136
+    Top = 160
+    object FDQuery_imprimircli_id: TFDAutoIncField
+      FieldName = 'cli_id'
+      Origin = 'cli_id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQuery_imprimircli_nome: TStringField
+      FieldName = 'cli_nome'
+      Origin = 'cli_nome'
+      Required = True
+      Size = 70
+    end
+    object FDQuery_imprimircli_endereco: TStringField
+      FieldName = 'cli_endereco'
+      Origin = 'cli_endereco'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_imprimircli_cidade: TStringField
+      FieldName = 'cli_cidade'
+      Origin = 'cli_cidade'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_imprimircli_bairro: TStringField
+      FieldName = 'cli_bairro'
+      Origin = 'cli_bairro'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_imprimircli_estado: TStringField
+      FieldName = 'cli_estado'
+      Origin = 'cli_estado'
+      Required = True
+      Size = 60
+    end
+    object FDQuery_imprimircli_email: TStringField
+      FieldName = 'cli_email'
+      Origin = 'cli_email'
+      Required = True
+      Size = 100
+    end
+    object FDQuery_imprimircli_numero: TIntegerField
+      FieldName = 'cli_numero'
+      Origin = 'cli_numero'
+      Required = True
+    end
+    object FDQuery_imprimircli_cpf: TStringField
+      FieldName = 'cli_cpf'
+      Origin = 'cli_cpf'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_imprimircli_rg: TStringField
+      FieldName = 'cli_rg'
+      Origin = 'cli_rg'
+      Required = True
+      Size = 15
+    end
+    object FDQuery_imprimircli_tel: TStringField
+      FieldName = 'cli_tel'
+      Origin = 'cli_tel'
+      Required = True
+    end
+    object FDQuery_imprimircli_cel: TStringField
+      FieldName = 'cli_cel'
+      Origin = 'cli_cel'
+      Required = True
+    end
+    object FDQuery_imprimircli_data_nascimento: TDateField
+      FieldName = 'cli_data_nascimento'
+      Origin = 'cli_data_nascimento'
+      Required = True
+    end
+    object FDQuery_imprimircli_data_cadastro: TDateField
+      FieldName = 'cli_data_cadastro'
+      Origin = 'cli_data_cadastro'
+      Required = True
+    end
+    object FDQuery_imprimircli_situacao: TStringField
+      FieldName = 'cli_situacao'
+      Origin = 'cli_situacao'
+      Required = True
+    end
+  end
+  object DS_consultar_clientes: TDataSource
+    DataSet = FDQuery_consulta_cliente
+    Left = 208
+    Top = 80
+  end
+  object report_cliente: TfrxReport
+    Version = '6.6'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Padr'#227'o'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43914.510976134300000000
+    ReportOptions.LastChange = 43914.819844050930000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 232
+    Top = 168
+    Datasets = <
+      item
+        DataSet = ds_rel_cliente
+        DataSetName = 'frxDBDataset1'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 105.826840000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo2: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Width = 215.433210000000000000
+          Height = 34.015770000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Nome da Empresa')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo3: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Top = 41.574830000000000000
+          Width = 215.433210000000000000
+          Height = 37.795300000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Rua: Vinte n'#176' 10 '
+            'Centro Campina Grande - PB')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line2: TfrxLineView
+          Align = baRight
+          AllowVectorExport = True
+          Top = 94.488250000000000000
+          Width = 718.110700000000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 234.330860000000000000
+        Top = 249.448980000000000000
+        Width = 718.110700000000000000
+        DataSet = ds_rel_cliente
+        DataSetName = 'frxDBDataset1'
+        RowCount = 0
+        object Line3: TfrxLineView
+          Align = baWidth
+          AllowVectorExport = True
+          Top = 3.779530000000000000
+          Width = 718.110700000000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 7.559060000000000000
+          Width = 94.488250000000000000
+          Height = 26.456710000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'C'#243'digo')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 7.559060000000000000
+          Width = 192.756030000000000000
+          Height = 26.456710000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Dados do Cliente')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line4: TfrxLineView
+          Align = baWidth
+          AllowVectorExport = True
+          Top = 41.574830000000000000
+          Width = 718.110700000000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 64.252010000000000000
+          Width = 94.488250000000000000
+          Height = 105.826840000000000000
+          DataField = 'cli_id'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_id"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 49.133890000000000000
+          Width = 109.606370000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Nome:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 79.370130000000000000
+          Width = 109.606370000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Endere'#231'o:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 109.606370000000000000
+          Width = 109.606370000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Bairro:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 49.133890000000000000
+          Width = 453.543600000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_nome'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_nome"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 79.370130000000000000
+          Width = 321.260050000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_endereco'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_endereco"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 578.268090000000000000
+          Top = 79.370130000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'N'#176)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Left = 619.842920000000000000
+          Top = 79.370130000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_numero'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_numero"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo14: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 109.606370000000000000
+          Width = 192.756030000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_bairro'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_bairro"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo15: TfrxMemoView
+          AllowVectorExport = True
+          Left = 449.764070000000000000
+          Top = 109.606370000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Cidade:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo16: TfrxMemoView
+          AllowVectorExport = True
+          Left = 544.252320000000000000
+          Top = 109.606370000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_cidade'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_cidade"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo17: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 136.063080000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Telefone:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo18: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 136.063080000000000000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_tel'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_tel"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo19: TfrxMemoView
+          AllowVectorExport = True
+          Left = 449.764070000000000000
+          Top = 139.842610000000000000
+          Width = 75.590600000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Celular:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo20: TfrxMemoView
+          AllowVectorExport = True
+          Left = 544.252320000000000000
+          Top = 143.622140000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_cel'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_cel"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo21: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 166.299320000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'RG:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo22: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 166.299320000000000000
+          Width = 132.283550000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_rg'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_rg"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo23: TfrxMemoView
+          AllowVectorExport = True
+          Left = 449.764070000000000000
+          Top = 166.299320000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'CPF:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo24: TfrxMemoView
+          AllowVectorExport = True
+          Left = 544.252320000000000000
+          Top = 166.299320000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_cpf'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_cpf"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo25: TfrxMemoView
+          AllowVectorExport = True
+          Left = 124.724490000000000000
+          Top = 196.535560000000000000
+          Width = 68.031540000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            'Email:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo26: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 196.535560000000000000
+          Width = 192.756030000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_email'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haBlock
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_email"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo27: TfrxMemoView
+          AllowVectorExport = True
+          Left = 449.764070000000000000
+          Top = 196.535560000000000000
+          Width = 117.165430000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Nascimento:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo28: TfrxMemoView
+          AllowVectorExport = True
+          Left = 582.047620000000000000
+          Top = 196.535560000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          DataField = 'cli_data_nascimento'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_data_nascimento"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line5: TfrxLineView
+          AllowVectorExport = True
+          Left = 109.606370000000000000
+          Top = 3.779530000000000000
+          Height = 37.795300000000000000
+          Color = clBlack
+          Frame.Typ = [ftLeft]
+        end
+        object Memo29: TfrxMemoView
+          AllowVectorExport = True
+          Left = 434.645950000000000000
+          Top = 7.559060000000000000
+          Width = 102.047310000000000000
+          Height = 26.456710000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Situa'#231#227'o:')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo30: TfrxMemoView
+          AllowVectorExport = True
+          Left = 555.590910000000000000
+          Top = 7.559060000000000000
+          Width = 139.842610000000000000
+          Height = 26.456710000000000000
+          DataField = 'cli_situacao'
+          DataSet = ds_rel_cliente
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."cli_situacao"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line6: TfrxLineView
+          AllowVectorExport = True
+          Left = 109.606370000000000000
+          Top = 41.574830000000000000
+          Height = 196.535560000000000000
+          Color = clBlack
+          Frame.Typ = [ftLeft]
+        end
+      end
+      object PageHeader1: TfrxPageHeader
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 41.574830000000000000
+        Top = 147.401670000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Top = 7.559060000000000000
+          Width = 226.771800000000000000
+          Height = 26.456710000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Rel'#225'torio de Clientes')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
+  end
+  object ds_rel_cliente: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSet = FDQuery_imprimir
+    BCDToCurrency = False
+    Left = 312
+    Top = 176
+  end
+end
